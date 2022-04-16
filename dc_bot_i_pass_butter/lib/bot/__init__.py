@@ -3,7 +3,7 @@ from glob import glob
 from discord.ext.commands import Bot, CommandNotFound
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-TOKEN_PATH = "./dc_bot_i_pass_butter/lib/bot/token"
+TOKEN_PATH = "./dc_bot_i_pass_butter/lib/bot/token.0"
 DC_BOT_PREFIX = '$'
 OWNER_ID = '291691766250471435'
 SERVER_ID = 826572526573322270
