@@ -3,6 +3,8 @@ from glob import glob
 from discord.ext.commands import Bot, CommandNotFound
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
+from ..db import db
+
 TOKEN_PATH = "./dc_bot_i_pass_butter/lib/bot/token.0"
 DC_BOT_PREFIX = '$'
 OWNER_ID = '291691766250471435'
@@ -37,6 +39,7 @@ class I_pass_butter(Bot):
         self.stdin = None
         self.stdout = None
         
+        #db.autosave()
 
         print('Running bot...')
         super().__init__(command_prefix=DC_BOT_PREFIX, owner_ids=OWNER_ID,)
@@ -45,12 +48,12 @@ class I_pass_butter(Bot):
         with open(TOKEN_PATH, 'r') as token_file:
             self.TOKEN = token_file.read()
         print('Running setup...')
-        #self.setup()
+        self.setup()
         super().run(self.TOKEN, reconnect=True)
 
     def setup(self):
         for cog in COGS:
-            self.load_extension(f'my_discord.cogs.{cog}')
+            self.load_extension(f'lib.cogs.{cog}')
             print(f'\t{cog} cog loaded.')
         print('Setup complete.')
 

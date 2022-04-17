@@ -18,6 +18,7 @@ def with_commit(func):
 def build():
     if isfile(BUILD_PATH):
         scriptexec(BUILD_PATH)
+    
         
 def commit():
     cxn.commit()
